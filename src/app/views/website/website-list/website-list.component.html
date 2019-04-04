@@ -1,0 +1,32 @@
+<header>
+  <nav class="navbar fixed-top bg-primary">
+    <div class="container-fluid">
+      <p class="navbar-text float-left">
+        <a routerLink="/profile/{{user.uid}}" class="navbar-link text-white">
+          <span class="fas fa-chevron-left fontawsome_icon top-left"></span>
+        </a>
+        <a class="text-white text-bold" routerLink="/profile/{{user.uid}}/website">
+          Websites
+        </a>
+      </p>
+      <a routerLink="/profile/{{user.uid}}/website/new" class="navbar-link navbar-text float-right text-white">
+        <span class="fas fa-plus fontawsome_icon top-right">
+        </span>
+      </a>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="container">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let website of websites">
+        <a routerLink="/profile/{{user.uid}}/website/{{website.websiteId}}/page">{{website.name}}</a>
+        <a routerLink="/profile/{{user.uid}}/website/{{website.websiteId}}/edit">
+          <span class="fas fa-cog fontawsome_icon main-icon float-right">
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</main>
+<app-website-footer [uid]="user.uid"></app-website-footer>
